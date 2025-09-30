@@ -31,38 +31,6 @@ docker-compose exec app pytest app/tests/
 
 ## Запуск проекта
 
-### Запуск с помощью Docker Compose(Рекомендуется)
-
-1. Клонируйте репозиторий:
-   ```bash
-   git clone <repository-url>
-   cd <имя_проекта>
-   ```
-
-2. Создайте файл `.env` на основе `.env.example` (если он еще не создан):
-   ```bash
-   cp .env.example .env
-   ```
-   
-   **Важно:** Убедитесь, что файл `.env` существует в корневой директории проекта перед запуском Docker Compose.
-   
-3. Если вы столкнулись с ошибками импорта модулей, пересоберите контейнеры:
-   ```bash
-   docker-compose down
-   docker-compose up --build
-   ```
-
-3. Запустите проект с помощью Docker Compose:
-   ```bash
-   docker-compose up --build
-   ```
-
-4. Примените миграции базы данных в отдельном терминале:
-   ```bash
-   docker-compose exec app alembic upgrade head
-   ```
-
-
 ### Локальный запуск
 
 1. Клонируйте репозиторий:
@@ -110,6 +78,38 @@ docker-compose exec app pytest app/tests/
 8. Запустите приложение:
    ```bash
    uvicorn app.main:app --reload
+   ```
+
+
+### Запуск с помощью Docker Compose
+
+1. Клонируйте репозиторий:
+   ```bash
+   git clone <repository-url>
+   cd <имя_проекта>
+   ```
+
+2. Создайте файл `.env` на основе `.env.example` (если он еще не создан):
+   ```bash
+   cp .env.example .env
+   ```
+   
+   **Важно:** Убедитесь, что файл `.env` существует в корневой директории проекта перед запуском Docker Compose.
+   
+3. Если вы столкнулись с ошибками импорта модулей, пересоберите контейнеры:
+   ```bash
+   docker-compose down
+   docker-compose up --build
+   ```
+
+3. Запустите проект с помощью Docker Compose:
+   ```bash
+   docker-compose up --build
+   ```
+
+4. Примените миграции базы данных в отдельном терминале:
+   ```bash
+   docker-compose exec app alembic upgrade head
    ```
 
 ## API документация
