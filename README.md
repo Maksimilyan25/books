@@ -62,20 +62,15 @@ docker-compose exec app pytest app/tests/
    POSTGRES_USER=postgres
    POSTGRES_PASSWORD=password
    POSTGRES_DB=books_db
-   DATABASE_URL=postgresql+asyncpg://postgres:password@localhost:5432/books_db
+   DATABASE_URL=postgresql+asyncpg://adsuser:Fidafo2611@localhost:5432/adsdb
    ```
 
-6. Запустите базу данных PostgreSQL (например, с помощью Docker):
-   ```bash
-   docker run --name books-db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password -e POSTGRES_DB=books_db -p 5432:5432 -d postgres:15
-   ```
-
-7. Примените миграции базы данных:
+6. Примените миграции базы данных:
    ```bash
    alembic upgrade head
    ```
 
-8. Запустите приложение:
+7. Запустите приложение:
    ```bash
    uvicorn app.main:app --reload
    ```
