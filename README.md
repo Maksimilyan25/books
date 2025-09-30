@@ -23,11 +23,10 @@ API для управления библиотекой книг с исполь�
 
 ```bash
 # Локально
-cd app
-pytest backend/tests/
+pytest app/tests/
 
 # С помощью Docker
-docker-compose exec backend pytest backend/tests/
+docker-compose exec app pytest app/tests/
 ```
 
 ## Запуск проекта
@@ -37,7 +36,7 @@ docker-compose exec backend pytest backend/tests/
 1. Клонируйте репозиторий:
    ```bash
    git clone <repository-url>
-   cd abs
+   cd <имя_проекта>
    ```
 
 2. Создайте файл `.env` на основе `.env.example` (если он еще не создан):
@@ -60,7 +59,7 @@ docker-compose exec backend pytest backend/tests/
 
 4. Примените миграции базы данных в отдельном терминале:
    ```bash
-   docker-compose exec backend alembic upgrade head
+   docker-compose exec app alembic upgrade head
    ```
 
 
@@ -69,7 +68,7 @@ docker-compose exec backend pytest backend/tests/
 1. Клонируйте репозиторий:
    ```bash
    git clone <repository-url>
-   cd abs
+   cd <имя_проекта>
    ```
 
 2. Создайте и активируйте виртуальное окружение:
@@ -82,7 +81,7 @@ docker-compose exec backend pytest backend/tests/
 
 3. Установите зависимости:
    ```bash
-   pip install -r app/requirements.txt
+   pip install -r requirements.txt
    ```
 
 4. Создайте файл `.env` на основе `.env.example`:
@@ -110,8 +109,7 @@ docker-compose exec backend pytest backend/tests/
 
 8. Запустите приложение:
    ```bash
-   cd app
-   uvicorn backend.main:app --reload
+   uvicorn app.main:app --reload
    ```
 
 ## API документация

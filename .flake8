@@ -1,0 +1,17 @@
+[flake8]
+# Максимальная длина строки
+max-line-length = 79
+# Ошибки, которые нужно игнорировать
+ignore = E203, E501, W503
+# Файлы и директории, которые нужно исключить из проверки
+exclude = 
+    .git,
+    __pycache__,
+    .pytest_cache,
+    venv,
+    env,
+    .env,
+    migrations,
+    build,
+    dist,
+    *.egg-info

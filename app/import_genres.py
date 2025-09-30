@@ -11,17 +11,6 @@ import pydantic
 from pydantic import BaseModel, Field, field_validator
 from dotenv import load_dotenv
 
-# Проверяем, запущен ли скрипт в Docker-контейнере
-IN_DOCKER = os.environ.get('RUNNING_IN_DOCKER', 'false').lower() == 'true'
-
-if IN_DOCKER:
-    # Если запущено в Docker, используем абсолютные пути
-    sys.path.append('/app')
-else:
-    # Если запущено локально, добавляем корневую директорию проекта
-    # Это позволяет импортировать модуль 'app' из любой поддиректории
-    project_root = str(Path(__file__).parent.parent)
-    sys.path.append(project_root)
 
 # flake8: noqa: E402
 from database.db import Base, engine, async_session
